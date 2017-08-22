@@ -1,3 +1,5 @@
+$('body').prepend('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,

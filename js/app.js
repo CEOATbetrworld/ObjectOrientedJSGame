@@ -1,5 +1,8 @@
+$('body').prepend('<h3 id="winCounter"></h3>')
+$('body').prepend('<h3>Win Counter</h3>')
 $('body').prepend('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
-
+var win = 0;
+document.getElementById("winCounter").innerHTML = win;
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
@@ -14,21 +17,6 @@ var Enemy = function(x, y) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    if (this.x < 505) {
-        this.x += (150 * dt);
-    }
-    else {this.x = -100;}
-
-    // logic to reset game if collision occurs
-    if(this.x < player.x + 30 && this.x + 60 > player.x && this.y < player.y + 60 && this.y + 40 > player.y) {
-
-        player.reset();
-    }
-};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -50,8 +38,8 @@ Player.prototype.update = function() {
 
     // If the player reaches the water
     if (player.y < 20) {
-    score++;
-    document.getElementById('playerScore').innerHTML = score;
+    win++;
+    document.getElementById('winCounter').innerHTML = win;
     this.reset();
 }
 };
@@ -80,6 +68,24 @@ Player.prototype.reset = function() {
     this.x = 200;
     this.y = 320;
 };
+
+Enemy.prototype.update = function(dt) {
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
+    if (this.x < 505) {
+        this.x += (150 * dt);
+    }
+    else {this.x = -100;}
+
+    // logic to reset game if collision occurs
+    if(this.x < player.x + 30 && this.x + 60 > player.x && this.y < player.y + 60 && this.y + 40 > player.y) {
+        win = 0;
+        document.getElementById('winCounter').innerHTML = win;
+        player.reset();
+    }
+};
+
 
 // Now instantiate your objects.
 var enemy1 = new Enemy(-90, 60);

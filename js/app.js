@@ -88,12 +88,12 @@ Enemy.prototype.update = function(dt) {
 
 
 // Now instantiate your objects.
-var enemy1 = new Enemy(-90, 60);
-var enemy2 = new Enemy(-190, 140);
-var enemy3 = new Enemy(-290, 230);
-var enemy4 = new Enemy(-390, 140);
-var enemy5 = new Enemy(-490, 60);
-var enemy6 = new Enemy(-890, 230);
+var enemy1 = new Enemy(-80, 60);
+var enemy2 = new Enemy(-200, 140);
+var enemy3 = new Enemy(-300, 230);
+var enemy4 = new Enemy(-320, 140);
+var enemy5 = new Enemy(-450, 60);
+var enemy6 = new Enemy(-800, 230);
 
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];

@@ -1,3 +1,4 @@
+'use strict';
 $('body').prepend('<h3 id="winCounter"></h3>')
 $('body').prepend('<h3>Win Counter</h3>')
 $('body').prepend('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
@@ -13,6 +14,7 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.speed =  ((Math.random()*100) + 100);//ensuring speed is above 100
 };
 
 // Update the enemy's position, required method for game
@@ -74,12 +76,12 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 505) {
-        this.x += (150 * dt);
+        this.x += (this.speed * dt);
     }
-    else {this.x = -100;}
+    else {this.x = -this.speed;}
 
     // logic to reset game if collision occurs
-    if(this.x < player.x + 30 && this.x + 60 > player.x && this.y < player.y + 60 && this.y + 40 > player.y) {
+    if(this.x < player.x + 30 && this.x + 60 > player.x && this.y < player.y + 100 && this.y + 40 > player.y) {
         win = 0;
         document.getElementById('winCounter').innerHTML = win;
         player.reset();

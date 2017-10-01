@@ -2,6 +2,14 @@
 $('body').prepend('<h3 id="winCounter"></h3>')
 $('body').prepend('<h3>Win Counter</h3>')
 $('body').prepend('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
+$(function() {
+  $("#test").swipe( {
+    //Generic swipe handler for all directions
+    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+      $(this).text("You swiped " + direction );  
+    }
+  });
+
 var win = 0;
 document.getElementById("winCounter").innerHTML = win;
 // Enemies our player must avoid

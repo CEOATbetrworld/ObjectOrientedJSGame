@@ -12,6 +12,10 @@ h3 {
     color: #efd469;
 }
 
-canvas{
-	width:720px;
+
+
+@media screen and (min-width: 964px) and (max-width: 1440px) {
+  canvas{
+	width:900px;
+}
 }

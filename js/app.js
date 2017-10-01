@@ -68,7 +68,7 @@ Player.prototype.handleInput = function(direction) {
       $("canvas").swipe( {
         //Single swipe handler for left swipes
         swipeLeft:function(event, direction, distance, duration, fingerCount) {
-          alert("you swiped "+ direction); 
+          alert("you swiped"); 
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
         threshold:0

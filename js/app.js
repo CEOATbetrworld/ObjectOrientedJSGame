@@ -5,6 +5,9 @@ $('body').append('<h3 id="winCounter"></h3>');
 $('body').append('<h4 >If You are using a touchscreen device Please click <button id="touch">HERE</button> before starting</h4>');
 var win = 0;
 document.getElementById("winCounter").innerHTML = win;
+//document.ontouchmove = function(event){
+ //   event.preventDefault();
+//}
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,

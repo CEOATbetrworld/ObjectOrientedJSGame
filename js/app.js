@@ -79,6 +79,18 @@ Player.prototype.handleInput = function(direction) {
         self.x += 50;
     }
         },
+        swipeUp:function(event, direction, distance, duration, fingerCount) {
+          console.log("you swiped");
+          if(self.y > 3) {
+        self.y -= 50;
+    }
+        },
+        swipeDown:function(event, direction, distance, duration, fingerCount) {
+          console.log("you swiped");
+          if(self.y < 400) {
+        self.y += 50;
+    }
+        },
     
         threshold:75
       });
@@ -133,14 +145,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-document.addEventListener('click', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
 
-    player.handleInput(allowedKeys[e.keyCode]);
-});
+    player.handleInput("down");
+
 

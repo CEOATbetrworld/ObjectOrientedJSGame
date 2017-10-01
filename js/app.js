@@ -63,6 +63,16 @@ Player.prototype.handleInput = function(direction) {
     if(direction == 'down' && this.y < 400) {
         this.y += 50;
     }
+    var count=0;
+      //Enable swiping...
+      $("canvas").swipe( {
+        //Single swipe handler for left swipes
+        swipeLeft:function(event, direction, distance, duration, fingerCount) {
+          alert("you swiped "+ direction); 
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold:0
+      });
 };
 
 // Is called when the player is reset to the starting point

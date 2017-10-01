@@ -69,27 +69,23 @@ Player.prototype.handleInput = function(direction) {
     $("canvas").swipe({
 
         swipeLeft: function(event, direction, distance, duration, fingerCount) {
-            console.log("you swiped");
             if (self.x > 0) {
                 self.x -= 50;
             }
         },
         swipeRight: function(event, direction, distance, duration, fingerCount) {
-            console.log("you swiped");
             if (self.x < 400) {
                 self.x += 50;
             }
         },
         swipeUp: function(event, direction, distance, duration, fingerCount) {
-            console.log("you swiped");
             if (self.y > 3) {
-                self.y -= 50;
+                self.y -= 80;
             }
         },
         swipeDown: function(event, direction, distance, duration, fingerCount) {
-            console.log("you swiped");
             if (self.y < 400) {
-                self.y += 50;
+                self.y += 80;
             }
         },
 

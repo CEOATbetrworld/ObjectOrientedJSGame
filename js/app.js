@@ -64,16 +64,26 @@ Player.prototype.handleInput = function(direction) {
         this.y += 50;
     }
     var count=0;
-      //Enable swiping...
+    var self = this;
       $("canvas").swipe( {
-        //Single swipe handler for left swipes
+
         swipeLeft:function(event, direction, distance, duration, fingerCount) {
-          alert("you swiped"); 
+          console.log("you swiped");
+          if(self.x > 0) {
+        self.x -= 50;
+    }
         },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-        threshold:0
+        swipeRight:function(event, direction, distance, duration, fingerCount) {
+          console.log("you swiped");
+          if(self.x < 400) {
+        self.x += 50;
+    }
+        },
+    
+        threshold:75
       });
 };
+
 
 // Is called when the player is reset to the starting point
 Player.prototype.reset = function() {
@@ -82,7 +92,7 @@ Player.prototype.reset = function() {
 };
 
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
+    // multiplied any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 505) {
@@ -99,7 +109,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 
-// Now instantiate your objects.
+
 var enemy1 = new Enemy(-80, 60);
 var enemy2 = new Enemy(-200, 140);
 var enemy3 = new Enemy(-300, 230);
@@ -107,15 +117,11 @@ var enemy4 = new Enemy(-320, 140);
 var enemy5 = new Enemy(-450, 60);
 var enemy6 = new Enemy(-800, 230);
 
-// Place all enemy objects in an array called allEnemies
+
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
-// Place the player object in a variable called player
+
 var player = new Player();
 
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -126,3 +132,15 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+document.addEventListener('click', function(e) {
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+    };
+
+    player.handleInput(allowedKeys[e.keyCode]);
+});
+

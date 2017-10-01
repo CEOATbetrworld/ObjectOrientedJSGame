@@ -1,7 +1,8 @@
 'use strict';
-$('body').prepend('<h3 id="winCounter"></h3>')
-$('body').prepend('<h3>Win Counter</h3>')
-$('body').prepend('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
+$('body').append('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
+$('body').append('<h3>Win Counter</h3>');
+$('body').append('<h3 id="winCounter"></h3>');
+$('body').append('<h4 >If You are using a touchscreen device Please click <button id="touch">HERE</button> before starting</h4>');
 var win = 0;
 document.getElementById("winCounter").innerHTML = win;
 // Enemies our player must avoid
@@ -145,7 +146,14 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+document.getElementById("touch").addEventListener('click', function(e) {
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+    };
 
-    player.handleInput("down");
-
+    player.handleInput(allowedKeys[e.keyCode]);
+});
 

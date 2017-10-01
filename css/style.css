@@ -12,8 +12,6 @@ h3,h4 {
     color: #efd469;
 }
 
-
-
 @media screen and (min-width: 964px) and (max-width: 1440px) {
   canvas{
 	width:900px;

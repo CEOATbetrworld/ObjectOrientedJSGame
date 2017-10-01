@@ -15,7 +15,7 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed =  ((Math.random()*100) + 100);//ensuring speed is above 100
+    this.speed = ((Math.random() * 100) + 100); //ensuring speed is above 100
 };
 
 // Update the enemy's position, required method for game
@@ -26,11 +26,11 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
+//  own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function () {
+var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 200;
     this.y = 320;
@@ -41,10 +41,10 @@ Player.prototype.update = function() {
 
     // If the player reaches the water
     if (this.y < 20) {
-    win++;
-    document.getElementById('winCounter').innerHTML = win;
-    this.reset();
-}
+        win++;
+        document.getElementById('winCounter').innerHTML = win;
+        this.reset();
+    }
 };
 
 Player.prototype.render = function() {
@@ -52,49 +52,49 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(direction) {
-    if(direction == 'left' && this.x > 0) {
+    if (direction == 'left' && this.x > 0) {
         this.x -= 50;
     }
-    if(direction == 'right' && this.x < 400) {
+    if (direction == 'right' && this.x < 400) {
         this.x += 50;
     }
-    if(direction == 'up' && this.y > 3) {
+    if (direction == 'up' && this.y > 3) {
         this.y -= 50;
     }
-    if(direction == 'down' && this.y < 400) {
+    if (direction == 'down' && this.y < 400) {
         this.y += 50;
     }
-    var count=0;
+    var count = 0;
     var self = this;
-      $("canvas").swipe( {
+    $("canvas").swipe({
 
-        swipeLeft:function(event, direction, distance, duration, fingerCount) {
-          console.log("you swiped");
-          if(self.x > 0) {
-        self.x -= 50;
-    }
+        swipeLeft: function(event, direction, distance, duration, fingerCount) {
+            console.log("you swiped");
+            if (self.x > 0) {
+                self.x -= 50;
+            }
         },
-        swipeRight:function(event, direction, distance, duration, fingerCount) {
-          console.log("you swiped");
-          if(self.x < 400) {
-        self.x += 50;
-    }
+        swipeRight: function(event, direction, distance, duration, fingerCount) {
+            console.log("you swiped");
+            if (self.x < 400) {
+                self.x += 50;
+            }
         },
-        swipeUp:function(event, direction, distance, duration, fingerCount) {
-          console.log("you swiped");
-          if(self.y > 3) {
-        self.y -= 50;
-    }
+        swipeUp: function(event, direction, distance, duration, fingerCount) {
+            console.log("you swiped");
+            if (self.y > 3) {
+                self.y -= 50;
+            }
         },
-        swipeDown:function(event, direction, distance, duration, fingerCount) {
-          console.log("you swiped");
-          if(self.y < 400) {
-        self.y += 50;
-    }
+        swipeDown: function(event, direction, distance, duration, fingerCount) {
+            console.log("you swiped");
+            if (self.y < 400) {
+                self.y += 50;
+            }
         },
-    
-        threshold:75
-      });
+
+        threshold: 75
+    });
 };
 
 
@@ -110,11 +110,12 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     if (this.x < 505) {
         this.x += (this.speed * dt);
+    } else {
+        this.x = -this.speed;
     }
-    else {this.x = -this.speed;}
 
     // logic to reset game if collision occurs
-    if(this.x < player.x + 30 && this.x + 60 > player.x && this.y < player.y + 100 && this.y + 40 > player.y) {
+    if (this.x < player.x + 30 && this.x + 60 > player.x && this.y < player.y + 100 && this.y + 40 > player.y) {
         win = 0;
         document.getElementById('winCounter').innerHTML = win;
         player.reset();
@@ -156,4 +157,3 @@ document.getElementById("touch").addEventListener('click', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-

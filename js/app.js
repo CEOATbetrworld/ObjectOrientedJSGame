@@ -1,5 +1,5 @@
 'use strict';
-$('body').append('<h1 id="headLine">Welcome To Beautiful HTML5 Game</h1>');
+$('body').append('<h1 id="headLine">HTML5 Game</h1>');
 $('body').append('<h3>Win Counter</h3>');
 $('body').append('<h3 id="winCounter"></h3>');
 $('body').append('<h4 >If You are using a touchscreen device Please click <button id="touch">HERE</button> before starting</h4>');
@@ -162,4 +162,11 @@ window.addEventListener("keydown", function(e) {
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
     }
+}, false);
+
+
+document.addEventListener('touchmove', function(e) {
+
+        e.preventDefault();
+
 }, false);

@@ -2,7 +2,7 @@
 $('body').append('<h1 id="headLine">HTML5 Game</h1>');
 $('body').append('<h3>Win Counter</h3>');
 $('body').append('<h3 id="winCounter"></h3>');
-$('body').append('<h4 >If You are using a touchscreen device Please click <button id="touch">HERE</button> before starting</h4>');
+$('body').append('<h3 >If You are using a touchscreen device Please tap <button id="touch">HERE</button> before starting</h3>');
 var win = 0;
 document.getElementById("winCounter").innerHTML = win;
 //document.ontouchmove = function(event){

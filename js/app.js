@@ -164,7 +164,7 @@ window.addEventListener("keydown", function(e) {
     }
 }, false);
 
-
+////////////////fix for bounce effect on iPads///////////////
 document.addEventListener('touchmove', function(e) {
 
         e.preventDefault();

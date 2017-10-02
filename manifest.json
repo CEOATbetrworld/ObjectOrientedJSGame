@@ -2,12 +2,12 @@
   "name": "deBugger",
   "icons": [
     {
-      "src": "/images/appicon.png",
+      "src": "launcher-icon-1x.png",
       "sizes": "48x48",
       "type": "image/png"
     }
   ],
   "start_url": "index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait"
 }

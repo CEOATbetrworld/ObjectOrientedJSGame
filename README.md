@@ -1,7 +1,7 @@
 How to run
 ===============================
 
-Launch this game by going [here.](https://ceoatbetrworld.github.io/game/)
+Launch this game by going [here.](https://ceoatbetrworld.github.io/ObjectOrientedJSGame/)
 
 How to play
 ===============================
